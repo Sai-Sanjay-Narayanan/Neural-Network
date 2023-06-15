@@ -131,8 +131,8 @@ for j = 1 : maxiter
 end
 
 plot(1:length(cost), cost)
-bruh = A{L} >= 0.5;
-sum(bruh == y) / m
+train_predicts = A{L} >= 0.5;
+sum(train_predicts == y) / m
 
 %% testing 
 
