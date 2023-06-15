@@ -1,6 +1,6 @@
 % defining the layers with no. of units
 
-layers = [1,1];
+layers = [6,1];
 L = length(layers);
 
 % learning rate
@@ -15,7 +15,7 @@ linear = @(x) (x);
 dlinear = @(x) (1);
 
 g = cell(1,L);
-g{1} = linear;
+g{1} = @relu;
 %g{2} = @relu;
 %g{3} = @relu;
 %g{4} = @relu;
@@ -27,7 +27,7 @@ drelu = @(x) (relu(x + tol/2) - relu(x - tol/2))/tol ;
 dsigmoid = @(x) (sigmoid(x) .* (1 - sigmoid(x)) );
 
 dg = cell(1,L);
-dg{1} = dlinear;
+dg{1} = drelu;
 %dg{2} = drelu;
 %dg{3} = drelu;
 %dg{4} = drelu;
